@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:17
+EXPOSE 8091
+ADD target/producer.jar producer.jar
+ENTRYPOINT [ "java","-jar","producer.jar" ]

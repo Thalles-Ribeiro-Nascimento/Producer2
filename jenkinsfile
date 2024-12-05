@@ -1,12 +1,13 @@
 pipeline {
     agent any
-    //tools {
-    //    nodejs "node 20.18.0"
-    //}
+    tools{
+        maven 'Maven Instalações' //Nome do maven
+    }
     stages {
         stage('Check Repositório') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], useRemoteConfigs:[[url: 'https://github.com/Thalles-Ribeiro-Nascimento/Producer2.git']]])
+                sh 'mvn clean install'
             }
         }
         //stage('Instalar Dependências') {
@@ -38,7 +39,7 @@ pipeline {
                     // sh "docker stop ${appName} || true"
                     // sh "docker rm ${appName} || true"
                     // Executar o novo container
-                    sh "docker run -d --name ${appName} -p 3000:3000 ${imageTag}"
+                    sh "docker run --name ${appName} -p 8081:8081 -d ${imageTag}"
                 }
             }
         }
