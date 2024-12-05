@@ -1,0 +1,4 @@
+br/com/senac/producer/models/Producer.class
+br/com/senac/producer/configs/MQConfig.class
+br/com/senac/producer/controllers/ProducerController.class
+br/com/senac/producer/ProducerApplication.class
