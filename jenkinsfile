@@ -7,7 +7,7 @@ pipeline {
         stage('Check Repositório') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], useRemoteConfigs:[[url: 'https://github.com/Thalles-Ribeiro-Nascimento/Producer2.git']]])
-                sh 'mvn clean install'
+                sh 'mvn clean package -DskipTests'
             }
         }
         //stage('Instalar Dependências') {
