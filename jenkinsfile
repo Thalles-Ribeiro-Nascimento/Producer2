@@ -36,8 +36,8 @@ pipeline {
                     def appName = 'producer'
                     def imageTag = "${appName}:${env.BUILD_ID}"
                     // Parar e remover o container existente, se houver
-                    // sh "docker stop ${appName} || true"
-                    // sh "docker rm ${appName} || true"
+                    sh "docker stop ${appName} || true"
+                    sh "docker rm ${appName} || true"
                     // Executar o novo container
                     sh "docker run --name ${appName} -p 8081:8081 -d ${imageTag}"
                 }
