@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Check Repositório') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], useRemoteConfigs:[[url: 'https://github.com/Thalles-Ribeiro-Nascimento/Producer_MQ.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], useRemoteConfigs:[[url: 'https://github.com/Thalles-Ribeiro-Nascimento/Producer2.git']]])
             }
         }
         //stage('Instalar Dependências') {
